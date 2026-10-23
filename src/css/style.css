@@ -549,7 +549,13 @@ section + section { margin-top: var(--s-6); }
   .note--polaroid { left: -14%; }
   .arrow--polaroid { left: 8%; top: 2.2rem; width: 80px; height: 66px; }
 
-  .poze { grid-template-columns: 1fr; }
+  .poze { grid-template-columns: 1fr; row-gap: 0; }
+  /* phones: heading first, then the NPR. photos, then the rest of the text */
+  .poze__text { display: contents; }
+  .poze > .label { order: 0; }
+  .poze__text .caps-heading { order: 1; margin-bottom: 1.25rem; }
+  .poze__collage { order: 2; }
+  .poze__text > :not(.caps-heading) { order: 3; }
   .poze__collage, .poze__text { grid-column: 1; }
   .poze__collage { padding-top: 3.5rem; padding-bottom: 3rem; }
   .poze__main { width: 74%; }
