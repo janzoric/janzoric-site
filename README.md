@@ -3,8 +3,8 @@
 Jan Zorič's website. Plain HTML/CSS with a little JavaScript, built with
 [Eleventy](https://www.11ty.dev/). Everything (text, photos, fonts) lives in this folder.
 
-> The full guide for the yearly portfolio update ("HOW TO MANAGE MY WEBSITE") comes once
-> the CMS is connected to GitHub. This file covers previewing and editing locally.
+> **Navodila za upravljanje strani (letna posodobitev portfolia, CMS, Lightroom, težave):
+> [KAKO-UPRAVLJATI-STRAN.md](KAKO-UPRAVLJATI-STRAN.md).** This file is the technical overview.
 
 ## Preview on your Mac
 
