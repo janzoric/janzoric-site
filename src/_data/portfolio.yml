@@ -1,6 +1,5 @@
-# Vrstni red fotografij v portfoliu (od leve proti desni, od zgoraj navzdol). To datoteko ureja CMS.
-# Vsaka 17. in 18. fotografija je prikazana večja ("razpon").
 photos:
+  - /photos/portfolio/drone_ptujskagora.jpg
   - /photos/portfolio/portfolio-063.jpg
   - /photos/portfolio/portfolio-002.jpg
   - /photos/portfolio/portfolio-003.jpg
