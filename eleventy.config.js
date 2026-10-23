@@ -1,6 +1,8 @@
 // Eleventy build configuration.
 // Turns the templates in /src into a plain static website in /_site.
 import path from "node:path";
+import fs from "node:fs";
+import crypto from "node:crypto";
 import { load as loadYaml } from "js-yaml";
 import { HtmlBasePlugin } from "@11ty/eleventy";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
@@ -40,6 +42,14 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter("year", () => new Date().getFullYear());
   eleventyConfig.addFilter("json", (value) => JSON.stringify(value));
+  // Cache busting: "/css/style.css" → "/css/style.css?v=1a2b3c4d" (changes when the file changes),
+  // so phones never keep showing an old version after an update.
+  eleventyConfig.addFilter("v", (url) => {
+    const file = path.join("src", url);
+    if (!fs.existsSync(file)) return url;
+    const hash = crypto.createHash("md5").update(fs.readFileSync(file)).digest("hex").slice(0, 8);
+    return `${url}?v=${hash}`;
+  });
   eleventyConfig.addFilter("isoDate", (date) => new Date(date).toISOString().slice(0, 10));
 
   eleventyConfig.setServerOptions({ port: 8080 });

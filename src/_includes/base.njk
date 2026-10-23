@@ -27,11 +27,11 @@
   <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preload" href="/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="{{ '/css/style.css' | v }}">
   <script>document.documentElement.classList.add("js")</script>
-  <script src="/js/main.js" defer></script>
+  <script src="{{ '/js/main.js' | v }}" defer></script>
   {%- if pageScript %}
-  <script src="/js/{{ pageScript }}" defer></script>
+  <script src="{{ ('/js/' + pageScript) | v }}" defer></script>
   {%- endif %}
   {%- include "schema.njk" %}
   {%- if site.goatcounter %}
