@@ -1,0 +1,41 @@
+---
+layout: base.njk
+permalink: /portfolio/
+title: "Poročne fotografije – portfolio | Jan Zorič, poročni fotograf"
+description: "Izbor poročnih fotografij s porok po Sloveniji: priprave, obred, portreti in žur. Resnični trenutki, smeh in ples – brez prisiljenih poz."
+bodyClass: page-portfolio
+pageScript: portfolio.js
+---
+{#- The photos and their order come from src/_data/portfolio.yml (edited in the CMS).
+    Rows are laid out by _includes/justify.njk; every 17th + 18th photo is a larger "spread". -#}
+<header class="portfolio-intro">
+  <h1>FOTOGRAFOV IZBOR</h1>
+  <p>Zbirka mojih najljubših poročnih fotografij s porok po vsej Sloveniji.</p>
+</header>
+
+<div class="jg" data-count="{{ gallery.count }}">
+  {%- for item in gallery.items %}
+  <figure class="jg__item{% if item.spread %} jg__item--spread{% endif %}" style="--r: {{ item.ratio }}" data-r="{{ item.ratio }}">
+    <button class="g-open" type="button" data-index="{{ item.index }}" aria-label="Povečaj fotografijo {{ item.index + 1 }} od {{ gallery.count }}">
+      <img src="{{ item.src }}" alt="{{ item.alt }}"
+           sizes="{% if item.spread %}(min-width: 800px) 50vw, 100vw{% else %}(min-width: 800px) 24vw, 40vw{% endif %}" eleventy:widths="320,480,800,1200,1600,2400"
+           {%- if loop.index <= 6 %} loading="eager"{% endif %}{% if loop.index <= 2 %} fetchpriority="high"{% endif %}>
+    </button>
+    <figcaption class="frame-no" aria-hidden="true">Nº {{ item.no }}</figcaption>
+  </figure>
+  {%- endfor %}
+</div>
+{% include "justify.njk" %}
+
+<section class="outro" data-reveal>
+  <p class="outro__big">OSTANE SAMO ŠE ENA STVAR.</p>
+  <p><a class="bracket-link bracket-link--big" href="/kontakt/">[GREMO NA KAVO]</a></p>
+</section>
+
+<dialog class="lightbox" aria-label="Povečana fotografija">
+  <img class="lightbox__img" alt="">
+  <p class="lightbox__count" aria-live="polite"></p>
+  <button class="lightbox__btn lightbox__close" type="button">[zapri]</button>
+  <button class="lightbox__btn lightbox__prev" type="button" aria-label="Prejšnja fotografija">←</button>
+  <button class="lightbox__btn lightbox__next" type="button" aria-label="Naslednja fotografija">→</button>
+</dialog>

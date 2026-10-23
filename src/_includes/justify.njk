@@ -1,0 +1,89 @@
+{#- Runs right after the grid HTML so photos are painted once, at their final size. -#}
+<script>
+(() => {
+  // ---------------------------------------------------------------------------
+  // Justified rows: photos keep their own shape, every row is the same height
+  // and fills the full width. Without this script the CSS fallback still shows
+  // a decent flexible grid.
+  const grid = document.querySelector(".jg");
+  if (grid) {
+    const figures = [...grid.querySelectorAll(".jg__item")];
+    let lastWidth = 0;
+
+    const layout = () => {
+      const style = getComputedStyle(grid);
+      const W = grid.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+      if (!W || W === lastWidth) return;
+      lastWidth = W;
+      const gap = parseFloat(style.columnGap) || 0;
+      const targetH = Math.min(300, Math.max(140, W * 0.22));
+      const spreadMaxH = Math.min(window.innerHeight * 0.8, W * 0.62);
+
+      const rows = [];
+      let row = [];
+      const ratio = (f) => parseFloat(f.dataset.r);
+      const sumR = (items) => items.reduce((s, f) => s + ratio(f), 0);
+      const naturalWidth = (items) => sumR(items) * targetH + gap * (items.length - 1);
+
+      // A row that ends early (before a spread or at the very end): if it's
+      // less than ~60% full, merge it into the row above instead of stretching it.
+      const closeRow = (isEnd) => {
+        if (!row.length) return;
+        const fill = naturalWidth(row) / W;
+        const prev = rows[rows.length - 1];
+        if (fill < 0.6 && prev && prev.type === "flow") prev.items.push(...row);
+        else rows.push({ type: isEnd && fill < 1 ? "last" : "flow", items: row });
+        row = [];
+      };
+
+      for (let i = 0; i < figures.length; i++) {
+        const f = figures[i];
+        if (f.classList.contains("jg__item--spread")) {
+          closeRow(false);
+          const pair = [f];
+          while (figures[i + 1]?.classList.contains("jg__item--spread")) pair.push(figures[++i]);
+          rows.push({ type: "spread", items: pair });
+          continue;
+        }
+        row.push(f);
+        if (naturalWidth(row) >= W) {
+          rows.push({ type: "flow", items: row });
+          row = [];
+        }
+      }
+      closeRow(true);
+
+      rows.forEach(({ type, items }) => {
+        const free = W - gap * (items.length - 1);
+        let h = free / sumR(items);
+        if (type === "spread") h = Math.min(h, spreadMaxH);
+        if (type === "last") h = Math.min(h, targetH);
+        let used = 0;
+        items.forEach((f, k) => {
+          let w = Math.floor(ratio(f) * h);
+          if (k === items.length - 1 && type === "flow") w = Math.floor(free - used); // absorb rounding
+          used += w;
+          f.style.width = `${w}px`;
+          f.style.height = `${Math.round(h)}px`;
+          f.style.marginLeft = f.style.marginRight = "";
+        });
+        // Narrower spreads are centered; the margins also keep the row on its own line.
+        if (type === "spread") {
+          const pad = Math.max(0, (W - used - gap * (items.length - 1)) / 2);
+          items[0].style.marginLeft = `${Math.floor(pad)}px`;
+          items[items.length - 1].style.marginRight = `${Math.floor(pad)}px`;
+        }
+      });
+      grid.classList.add("is-laid");
+    };
+
+    layout();
+    let frame = 0;
+    new ResizeObserver(() => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(layout);
+    }).observe(grid);
+  }
+
+})();
+</script>

@@ -1,0 +1,22 @@
+{
+  "url": "https://janzoric.com",
+  "name": "Jan Zorič",
+  "title": "Jan Zorič – poročni fotograf",
+  "lang": "sl",
+  "locale": "sl_SI",
+  "ogImage": "/og-image.jpg",
+  "formEndpoint": "",
+  "inspirationCredit": "Dušan Reljin",
+  "email": "info@janzoric.com",
+  "instagram": "zoric.jpg",
+  "instagramUrl": "https://www.instagram.com/zoric.jpg/",
+  "business": {
+    "legalName": "Fotografske storitve, Jan Zorič s.p.",
+    "street": "Rovte 15",
+    "postalCode": "1373",
+    "city": "Rovte",
+    "country": "SI",
+    "taxId": "43367658"
+  },
+  "goatcounter": ""
+}

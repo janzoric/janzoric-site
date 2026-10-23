@@ -1,0 +1,38 @@
+---
+layout: base.njk
+permalink: /zasebnost/
+title: "Zasebnost | Jan Zorič, poročni fotograf"
+description: "Kako obdelujem osebne podatke, ki mi jih pošljeta prek kontaktnega obrazca na janzoric.com."
+bodyClass: page-legal
+---
+{#- Plain-language privacy notice. Review it yourself before publishing – it's a sensible draft, not legal advice. -#}
+<article class="legal">
+  <h1 class="legal__title">Zasebnost</h1>
+  <p class="legal__lead">Na kratko: podatke, ki mi jih pošljeta, uporabim samo za to, da vama odgovorim. Nikomur jih ne prodajam in ne pošiljam spama. Spodaj je še malo daljša, uradna verzija.</p>
+
+  <h2>Kdo upravlja podatke</h2>
+  <p>{{ site.business.legalName }}<br>
+  {{ site.business.street }}, {{ site.business.postalCode }} {{ site.business.city }}, Slovenija<br>
+  Davčna številka: {{ site.business.taxId }}<br>
+  Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+
+  <h2>Katere podatke zbiram in zakaj</h2>
+  <p>Ko izpolnita kontaktni obrazec, prejmem ime, email naslov, datum dogodka, sporočilo in (če sta ga izbrala) paket. Te podatke uporabim, da odgovorim na povpraševanje, preverim, ali sem na vajin datum prost, in pripravim ponudbo. Pravna podlaga je vajina prošnja pred morebitno sklenitvijo pogodbe (6. člen, točka b, Splošne uredbe o varstvu podatkov – GDPR).</p>
+
+  <h2>Kdo še vidi podatke</h2>
+  <p>Obrazec mi sporočila posreduje prek storitve Formspree (Formspree, Inc., ZDA), ki jih pošlje na moj email. Več o tem, kako Formspree ravna s podatki, je v njihovi <a href="https://formspree.io/legal/privacy-policy/" rel="noopener">politiki zasebnosti</a>. Spletna stran gostuje na GitHub Pages (GitHub, Inc.), ki lahko zaradi varnosti in delovanja beleži tehnične podatke, kot je IP naslov.</p>
+
+  <h2>Statistika obiskov</h2>
+  <p>Za osnovno statistiko obiskov uporabljam GoatCounter, ki ne uporablja piškotkov in ne zbira podatkov, s katerimi bi vaju lahko prepoznal. Vidim samo skupne številke, na primer koliko ljudi je obiskalo stran in od kod so prišli.</p>
+
+  <h2>Piškotki</h2>
+  <p>Stran ne uporablja piškotkov. Edina stvar, ki si jo zapomni vaš brskalnik, je rekord v skriti igri. Ostane samo na vaši napravi.</p>
+
+  <h2>Kako dolgo hranim podatke</h2>
+  <p>Povpraševanja hranim, dokler se pogovarjamo o vajini poroki. Če ne pride do sodelovanja, jih izbrišem najkasneje v enem letu. Če sodelujemo, podatke, potrebne za račun, hranim toliko časa, kot zahteva zakon.</p>
+
+  <h2>Vajine pravice</h2>
+  <p>Kadarkoli lahko zahtevata vpogled v svoje podatke, popravek ali izbris – dovolj je email na <a href="mailto:{{ site.email }}">{{ site.email }}</a>. Če menita, da z vajinimi podatki ne ravnam prav, se lahko obrneta tudi na <a href="https://www.ip-rs.si/" rel="noopener">Informacijskega pooblaščenca</a>.</p>
+
+  <p class="legal__date">Zadnja sprememba: {{ "" | year }}</p>
+</article>

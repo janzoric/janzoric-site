@@ -1,0 +1,65 @@
+# Sveltia CMS settings. Opens at /admin/ on the live site.
+# Every "Save" in the CMS becomes a commit on GitHub, which rebuilds the site.
+
+backend:
+  name: github
+  repo: janzoric/janzoric-site
+  branch: main
+
+# Default place for uploads (site photos).
+media_folder: src/photos/site
+public_folder: /photos/site
+
+media_libraries:
+  default:
+    config:
+      slugify_filename: true # "Poroka Ana & Marko.jpg" → "poroka-ana-marko.jpg"
+
+collections:
+  - name: portfolio
+    label: Portfolio
+    files:
+      - name: gallery
+        label: Fotografije v portfoliu
+        file: src/_data/portfolio.yml
+        fields:
+          - name: photos
+            label: Fotografije (vrstni red = vrstni red na strani)
+            widget: image
+            multiple: true
+            media_folder: /src/photos/portfolio
+            public_folder: /photos/portfolio
+            hint: Povleci več fotografij naenkrat. Vrstni red spremeniš tako, da fotografijo primeš za ročaj na levi in jo povlečeš.
+
+  - name: cene
+    label: Izbira (paketi in cene)
+    files:
+      - name: paketi
+        label: Paketi
+        file: src/_data/paketi.yml
+        fields:
+          - name: paketi
+            label: Paketi
+            widget: list
+            summary: "{{fields.ime}} – {{fields.cena}}"
+            fields:
+              - { name: ime, label: Ime paketa, widget: string }
+              - { name: cena, label: Cena, widget: string }
+              - { name: osnova, label: Kaj dobita, widget: list, field: { name: item, label: Vrstica, widget: string } }
+              - { name: bonus, label: Šaljivi dodatki, widget: list, field: { name: item, label: Vrstica, widget: string } }
+          - { name: opomba, label: Opomba pod paketi, widget: text }
+
+  - name: vprasanja
+    label: Pogosta vprašanja (IZBIRA)
+    files:
+      - name: vprasanja
+        label: Vprašanja in odgovori
+        file: src/_data/vprasanja.yml
+        fields:
+          - name: vprasanja
+            label: Vprašanja
+            widget: list
+            summary: "{{fields.vprasanje}}"
+            fields:
+              - { name: vprasanje, label: Vprašanje, widget: string }
+              - { name: odgovor, label: Odgovor, widget: text }

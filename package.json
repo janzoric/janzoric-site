@@ -1,0 +1,21 @@
+{
+  "name": "janzoric-site",
+  "version": "1.0.0",
+  "description": "Spletna stran janzoric.com",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@11ty/eleventy": "3.1.7",
+    "@11ty/eleventy-img": "7.1.1",
+    "js-yaml": "5.5.0"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  }
+}

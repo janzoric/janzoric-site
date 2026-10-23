@@ -1,0 +1,54 @@
+---
+layout: base.njk
+permalink: /kontakt/
+title: "Kontakt – prosti termini in ponudba | Jan Zorič, poročni fotograf"
+description: "Preverita, ali je vajin datum poroke še prost, in dobita ponudbo za poročno fotografiranje. Email info@janzoric.com ali kontaktni obrazec."
+bodyClass: page-contact
+---
+{#- Form submissions go to the address in site.json → formEndpoint (Formspree). -#}
+<header class="contact-intro" data-reveal>
+  <h1 class="contact-intro__main">Če sta se odločila, da bi me rada imela na poroki, mi pišita.<br>
+  Če še nista odločena, mi tudi lahko pišeta.</h1>
+  <p class="contact-intro__small">Če me nočeta, mi tega prosim ne posebej sporočat, ker si bom jemal osebno.</p>
+</header>
+
+<div class="contact-grid">
+  <form class="contact-form" action="{{ site.formEndpoint }}" method="POST" novalidate data-reveal>
+    <input type="hidden" name="paket" value="">
+    <input type="hidden" name="_subject" value="Novo povpraševanje – janzoric.com">
+    <p class="hp" aria-hidden="true"><label>Pusti prazno <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+
+    <div class="field">
+      <label for="f-ime">Ime *</label>
+      <input id="f-ime" name="ime" type="text" required autocomplete="name" placeholder="Ženin in nevesta">
+      <p class="field__error" id="f-ime-err"></p>
+    </div>
+    <div class="field">
+      <label for="f-email">Email naslov *</label>
+      <input id="f-email" name="email" type="email" required autocomplete="email" placeholder="Obljubim, da ne bom pošiljal spama.">
+      <p class="field__error" id="f-email-err"></p>
+    </div>
+    <div class="field">
+      <label for="f-datum">Datum dogodka</label>
+      <input id="f-datum" name="datum" type="text" inputmode="numeric" placeholder="DD.MM.LLLL">
+      <p class="field__error" id="f-datum-err"></p>
+    </div>
+    <div class="field">
+      <label for="f-sporocilo">Sporočilo *</label>
+      <textarea id="f-sporocilo" name="sporocilo" rows="6" required placeholder="Povejta mi kaj o sebi, poroki ali vajinem dnevu."></textarea>
+      <p class="field__error" id="f-sporocilo-err"></p>
+    </div>
+    <button class="send-btn" type="submit">POŠLJI</button>
+    <p class="form-privacy">Podatke uporabim samo za to, da vama odgovorim in pripravim ponudbo. <a href="/zasebnost/">Več o zasebnosti</a>.</p>
+    <p class="form-status" role="status" aria-live="polite"></p>
+  </form>
+
+  <aside class="contact-aside" data-reveal>
+    <p class="contact-aside__big">Izpolnita obrazec in kmalu vaju kontaktiram.</p>
+    <p class="contact-aside__small">Za ponudbo vpišita datum, lokacijo in predviden čas fotografiranja.</p>
+    <dl class="contact-direct">
+      <div><dt>Email</dt><dd><a class="underline-link" href="mailto:{{ site.email }}">{{ site.email }}</a></dd></div>
+      <div><dt>Instagram</dt><dd><a class="underline-link" href="{{ site.instagramUrl }}" rel="me">@{{ site.instagram }}</a></dd></div>
+    </dl>
+  </aside>
+</div>

@@ -1,0 +1,9 @@
+{#- Small editorial section label: "01 — O MENI" with a hairline. -#}
+{% macro label(num, text) -%}
+<p class="label" aria-hidden="true"><span class="label__num">{{ num }}</span><span class="label__text">{{ text }}</span></p>
+{%- endmacro %}
+
+{#- A strip of masking tape. Position with an extra class (tape--tl, tape--tr, tape--top). -#}
+{% macro tape(pos = "top") -%}
+<span class="tape tape--{{ pos }}" aria-hidden="true"></span>
+{%- endmacro %}

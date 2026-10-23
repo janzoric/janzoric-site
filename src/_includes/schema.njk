@@ -1,0 +1,63 @@
+{#- Structured data: tells Google who this is, where the business is, what it offers. -#}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "{{ site.url }}/#posel",
+      "name": "Jan Zorič – poročni fotograf",
+      "legalName": "{{ site.business.legalName }}",
+      "url": "{{ site.url }}/",
+      "image": "{{ site.url }}{{ site.ogImage }}",
+      "logo": "{{ site.url }}/apple-touch-icon.png",
+      "description": "Dokumentarna poročna fotografija po vsej Sloveniji. Resnični trenutki namesto prisiljenih poz.",
+      "email": "{{ site.email }}",
+      "vatID": "SI{{ site.business.taxId }}",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{{ site.business.street }}",
+        "postalCode": "{{ site.business.postalCode }}",
+        "addressLocality": "{{ site.business.city }}",
+        "addressCountry": "{{ site.business.country }}"
+      },
+      "areaServed": { "@type": "Country", "name": "Slovenija" },
+      "priceRange": "500–1000 €",
+      "sameAs": ["{{ site.instagramUrl }}"],
+      "founder": { "@id": "{{ site.url }}/#jan" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Paketi poročnega fotografiranja",
+        "itemListElement": [
+          {%- for p in paketi.paketi %}
+          {
+            "@type": "Offer",
+            "name": "Poročno fotografiranje – paket {{ p.ime }}",
+            "description": "{{ p.osnova | join(', ') }}",
+            "price": "{{ p.cena | replace(' EUR', '') }}",
+            "priceCurrency": "EUR",
+            "url": "{{ site.url }}/izbira/"
+          }{% if not loop.last %},{% endif %}
+          {%- endfor %}
+        ]
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "{{ site.url }}/#jan",
+      "name": "Jan Zorič",
+      "jobTitle": "Poročni fotograf",
+      "url": "{{ site.url }}/kdo-je-ta-model/",
+      "sameAs": ["{{ site.instagramUrl }}"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#stran",
+      "url": "{{ site.url }}/",
+      "name": "Jan Zorič – poročni fotograf",
+      "inLanguage": "sl",
+      "publisher": { "@id": "{{ site.url }}/#posel" }
+    }
+  ]
+}
+</script>

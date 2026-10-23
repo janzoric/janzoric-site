@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  {%- if robots %}
+  <meta name="robots" content="{{ robots }}">
+  {%- endif %}
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <meta name="theme-color" content="#FFFDF7">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="{{ site.locale }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{{ ogTitle or title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:image" content="{{ site.url }}{{ site.ogImage }}">
+  <meta property="og:image:alt" content="Nevesta se smeje in drži krapa – Jan Zorič, poročni fotograf">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/style.css">
+  <script>document.documentElement.classList.add("js")</script>
+  <script src="/js/main.js" defer></script>
+  {%- if pageScript %}
+  <script src="/js/{{ pageScript }}" defer></script>
+  {%- endif %}
+  {%- include "schema.njk" %}
+  {%- if site.goatcounter %}
+  {#- Cookie-free visitor stats (goatcounter.com). Set the code in site.json. #}
+  <script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+  {%- endif %}
+</head>
+<body class="{{ bodyClass }}">
+  <a class="skip-link" href="#vsebina">Preskoči na vsebino</a>
+  {% include "header.njk" %}
+  <main id="vsebina">
+    {{ content | safe }}
+  </main>
+  {#- Footer styled as a small magazine colophon. -#}
+  <footer class="site-footer colophon band">
+    <div class="colophon__line">
+      <p class="colophon__title">Kolofon</p>
+      <dl class="colophon__items">
+      <div><dt>Fotografije</dt><dd>Jan Zorič</dd></div>
+      <div><dt>Besedila</dt><dd>Jan Zorič</dd></div>
+      <div><dt>Lektoriranje</dt><dd>Zmanjkalo keša.</dd></div>
+      <div><dt>Email</dt><dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd></div>
+      <div><dt>Instagram</dt><dd><a href="{{ site.instagramUrl }}" rel="me">@{{ site.instagram }}</a></dd></div>
+      </dl>
+      <button class="egg-link" type="button" data-egg>[dolgčas mi je]</button>
+    </div>
+    <p class="colophon__copy">© {{ "" | year }} Jan Zorič. Vse pravice pridržane. Tudi tiste, za katere ne vem.</p>
+    <p class="colophon__legal">{{ site.business.legalName }} · {{ site.business.street }}, {{ site.business.postalCode }} {{ site.business.city }} · DŠ: {{ site.business.taxId }} · <a href="/zasebnost/">Zasebnost</a></p>
+  </footer>
+  {% include "arrows.svg" %}
+</body>
+</html>

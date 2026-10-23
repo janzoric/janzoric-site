@@ -1,0 +1,47 @@
+# Paketi na strani IZBIRA. Ureja se lahko tudi prek CMS-ja.
+# "osnova" = kaj dobita, "bonus" = šaljivi dodatki pod črtico.
+paketi:
+  - ime: MINI
+    cena: 500 EUR
+    osnova:
+      - Prisotnost do 4 ure
+      - Min. 200 fotografij
+      - USB ključek in spletna galerija
+      - Fotografije z dronom*
+    bonus:
+      - Osnovna socializacija z gosti
+      - Občasen očesni stik
+      - Poznavanje osnovnih poročnih običajev
+
+  - ime: MIDI
+    cena: 750 EUR
+    osnova:
+      - Prisotnost do 8 ur
+      - Min. 350 fotografij
+      - USB ključek in spletna galerija
+      - Fotografije z dronom*
+    bonus:
+      - Vse iz paketa MINI in...
+      - Poznavanje vajinih sorodnikov
+      - Občasno vprašljiv humor
+      - Osnovno znanje plesnih korakov
+      - Lasten prevoz domov
+
+  - ime: MAXI
+    cena: 1000 EUR
+    osnova:
+      - Prisotnost do 12 ur
+      - Min. 550 fotografij
+      - USB ključek in spletna galerija
+      - Fotografije z dronom*
+    bonus:
+      - Vse iz paketa MIDI in...
+      - Poznavanje celotnega družinskega drevesa
+      - Ocena poročne torte
+      - Poznavanje besedil vsaj treh narodno-zabavnih komadov
+      - Visoka verjetnost, da bom tudi jaz na kakšni fotki
+      - Lasten prevoz domov, če bom še sposoben voziti
+
+opomba: >-
+  * Fotografiranje z dronom je odvisno od vremenskih razmer, lokacije
+  in veljavnih omejitev letenja. Če pogoji tega ne dopuščajo, fotografij iz zraka ne morem zagotoviti.

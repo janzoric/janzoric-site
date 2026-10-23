@@ -1,0 +1,20 @@
+{%- set links = [
+  { url: "/kdo-je-ta-model/", label: "KDO JE TA MODEL?" },
+  { url: "/portfolio/", label: "PORTFOLIO" },
+  { url: "/izbira/", label: "IZBIRA" },
+  { url: "/kontakt/", label: "KONTAKT" }
+] %}
+<header class="site-header">
+  <a class="wordmark" href="/" aria-label="Jan Zorič – domov">JAN.</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="meni">
+    <span class="visually-hidden">Meni</span>
+    <span class="nav-toggle__bars" aria-hidden="true"></span>
+  </button>
+  <nav class="site-nav" id="meni" aria-label="Glavni meni">
+    <ul>
+      {%- for link in links %}
+      <li><a href="{{ link.url }}"{% if page.url == link.url %} aria-current="page"{% endif %}>{{ link.label }}</a></li>
+      {%- endfor %}
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,151 @@
+---
+layout: base.njk
+title: "Poročni fotograf Slovenija | Jan Zorič – dokumentarna poročna fotografija"
+ogTitle: "Fotografiram poroke. Poroke jemljem resno … sebe malo manj."
+description: "Jan Zorič je dokumentarni poročni fotograf iz Slovenije. Brez čudnih poz – lovim resnične trenutke, smeh in stvari, ki se na poroki zgodijo same od sebe."
+bodyClass: page-home
+---
+{%- from "macros.njk" import label, tape %}
+
+<section class="hero" aria-labelledby="hero-naslov">
+  <img class="hero__img" src="/photos/site/hero-riba.jpg"
+       alt="Nevesta se na ribniku krohotaje drži velikega krapa"
+       sizes="100vw" loading="eager" fetchpriority="high">
+  <div class="hero__text">
+    <p id="hero-naslov" class="hero__title">FOTOGRAFIRAM<br>POROKE</p>
+    <p class="hero__tagline">POROKE JEMLJEM RESNO ... SEBE MALO MANJ.</p>
+  </div>
+</section>
+
+<section class="intro">
+  {{ label("01", "O meni") }}
+  <h1 class="display display--center" data-reveal>NAJMANJ PROFESIONALNI<br>POROČNI FOTOGRAF<br>V SLOVENIJI</h1>
+
+  <div class="intro__grid">
+    <div class="intro__text" data-reveal>
+      <p class="lead">Bolj kot fotografa me lahko<br>smatrata kot dodatnega gosta.</p>
+      <p class="lead">Samo da sem na vajini poroki službeno in<br>imam malo manj časa za alkohol.</p>
+      <p class="intro__where">Fotografiram po celi Sloveniji.</p>
+      <p><a class="bracket-link bracket-link--muted" href="/kdo-je-ta-model/">[več o meni]</a></p>
+    </div>
+
+    <figure class="polaroid-spot" data-reveal>
+      <p class="note note--polaroid">TO SEM JAZ</p>
+      <svg class="arrow arrow--polaroid" aria-hidden="true"><use href="#arrow-curl"/></svg>
+      <div class="polaroid-wrap">
+        <img class="flora flora--gyps" src="/flora/gypsophila.svg" alt="" aria-hidden="true" eleventy:ignore>
+        {{ tape("top") }}
+        <img class="polaroid-img" src="/photos/site/jan-polaroid.jpg"
+             alt="Polaroid fotografija Jana Zoriča s slušalkami na glavi"
+             sizes="(min-width: 800px) 30vw, 70vw">
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section class="poze band">
+  {{ label("02", "O pozah") }}
+  <div class="poze__collage" data-reveal>
+    <p class="note note--npr">NPR.</p>
+    <div class="poze__main">
+      {{ tape("tl") }}
+      <img src="/photos/site/npr-skok.jpg"
+           alt="Ženin se v polju skloni, nevesta se mu nasloni na hrbet, kot da bi preskakovala kozo"
+           sizes="(min-width: 800px) 30vw, 75vw">
+    </div>
+    <figure class="poze__inspo">
+      <p class="note note--inspo">AJA...<br>TOLE JE BLA<br>INSPIRACIJA</p>
+      <svg class="arrow arrow--inspo" aria-hidden="true"><use href="#arrow-hook"/></svg>
+      {{ tape("top") }}
+      <img src="/photos/site/inspiracija.jpg"
+           alt="Črno-bel studijski portret moškega v razkoračeni pozi"
+           sizes="(min-width: 800px) 16vw, 40vw" eleventy:widths="480">
+      <figcaption class="credit">Foto: {{ site.inspirationCredit }}</figcaption>
+    </figure>
+  </div>
+
+  <div class="poze__text" data-reveal>
+    <p class="caps-heading">NE BOM VAJU SILIL V ČUDNE POZE.<br>RAZEN ČE PRIDEJO SPONTANO.</p>
+    <p class="statement">NISTA FOTOMODELA.</p>
+    <p class="statement-sub">IN TO JE ČISTO V REDU.</p>
+
+    <div class="body-copy">
+      <p>Ne pričakujem, da bosta vedela, kam z rokami ali kako stati.<br>
+      Iskreno, večina ljudi pred fotoaparatom pozabi, kako se normalno obnašati.</p>
+      <p>Brez skrbi, pri portretih vama bom pomagal.<br>
+      Ne bom pa iz vajine poroke naredil celodnevnega fotografiranja.</p>
+      <p>Veliko raje lovim stvari, ki se zgodijo same od sebe.<br>
+      Tiste majhne trenutke, ki jih med vsem dogajanjem sploh ne opazita.</p>
+    </div>
+
+    <p class="lead lead--big">Želim, da fotografije izgledajo kot VAJINA poroka. Ne kot reklama za poroko.</p>
+  </div>
+</section>
+
+<section class="proof">
+  {{ label("03", "Pričevanja") }}
+  <figure class="testimonial" data-reveal>
+    <img class="testimonial__img" src="/photos/site/testimonial-tenis.jpg"
+         alt="Nevesta v poročni obleki s šopkom v roki odbije žogico na teniškem igrišču"
+         sizes="(min-width: 800px) 92vw, 100vw">
+    <blockquote class="testimonial__quote">
+      <p>“Sva brez besed! Ujel si toliko lepih trenutkov in čustev, da sva jih z veseljem podoživela. Če sva čisto iskrena, je bil photoshooting eden od vrhuncev najinega poročnega dne. Ob tebi sva se počutila popolnoma sproščeno, nič nama ni bilo nerodno in res sva uživala. Hvala ti za ves trud in dobro voljo<br>Res sva ti iskreno hvaležna!”</p>
+      <footer>Maja &amp; Jernej // Poroka</footer>
+    </blockquote>
+  </figure>
+
+  {#- More reviews come from src/_data/mnenja.yml -#}
+  <div class="quotes">
+    {%- for m in mnenja.mnenja %}
+    <blockquote class="quote" data-reveal>
+      <p>“{{ m.besedilo | trim | escape | nl2br | safe }}”</p>
+      <footer>{% if m.avtor %}{{ m.avtor }} // {% endif %}{{ m.priloznost }}</footer>
+    </blockquote>
+    {%- endfor %}
+  </div>
+</section>
+
+<section class="manifest band">
+  {{ label("04", "Filozofija") }}
+  <h2 class="serif-statement" data-reveal>Jebeš <span class="up">POPOLNO</span> poroko...<br>raje imejta <span class="up">DOBRO</span>.</h2>
+  <div class="manifest__text" data-reveal>
+    <p>Ne rabita popolnega vremena, popolnega urnika ali popolnih fotografskih poz.</p>
+    <p>Rabita poroko, na kateri se bosta imela fajn.</p>
+    <p>Jaz bom poskrbel za portrete, ujel dogajanje in bil zraven tudi takrat, ko stvari ne bodo šle čisto po planu.</p>
+    <p>Seveda bomo naredili tudi kak lep portret. Ampak če se vmes odločita odpret pivo, skočit v bazen ali naredit kakšno neumnost, ne bom jaz tisti, ki vaju bo ustavljal.</p>
+  </div>
+</section>
+
+<section class="scatter" aria-label="Izbor fotografij">
+  {{ label("05", "Iz arhiva") }}
+  <div class="scatter__pile">
+    <figure class="scatter__a">
+      {{ tape("top") }}
+      <img src="/photos/site/kolaz-cevlji.jpg"
+           alt="Ženin z razmršenimi lasmi začudeno gleda v čevelj z odpadlim podplatom"
+           sizes="(min-width: 800px) 22vw, 50vw">
+    </figure>
+    <figure class="scatter__b">
+      {{ tape("tr") }}
+      <img src="/photos/site/kolaz-vrecke.jpg"
+           alt="Mladoporočenca ponoči delita vrečke hitre hrane med goste"
+           sizes="(min-width: 800px) 30vw, 70vw">
+    </figure>
+    <figure class="scatter__c">
+      {{ tape("tl") }}
+      <img src="/photos/site/kolaz-glave.jpg"
+           alt="Ženin in nevesta v sončnih očalih zložita glavi eno nad drugo"
+           sizes="(min-width: 800px) 30vw, 70vw">
+    </figure>
+    <figure class="scatter__d">
+      {{ tape("top") }}
+      <img src="/photos/site/kolaz-resevalci.jpg"
+           alt="Svatje ponoči pred hišo objemajo reševalca v oranžni uniformi"
+           sizes="(min-width: 800px) 30vw, 70vw">
+    </figure>
+  </div>
+  <p class="scatter__cta">
+    <svg class="arrow arrow--cta" aria-hidden="true"><use href="#arrow-swoop"/></svg>
+    <a class="bracket-link bracket-link--big" href="/portfolio/">[poglej portfolio]</a>
+  </p>
+</section>

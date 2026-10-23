@@ -1,0 +1,16 @@
+# Dodatna mnenja na domači strani (pod velikim mnenjem na fotografiji).
+# "avtor" pusti prazno, če imen ni.
+mnenja:
+  - besedilo: |-
+      Jan, šele zdej sva utegnila pogledat in sva reeees navdušena!! Svaka čast za tole! Ne bi moglo bit boljš! 🙈
+      Res sva über zadovoljna z rezultatom
+      100x hvala in res komi čakam avgust ❤️
+    avtor: Jasna & Ben
+    priloznost: Predporočno fotografiranje
+
+  - besedilo: |-
+      Živjo,
+      sva šla že nekajkrat čez celo galerijo in slikce so nama neznansko všeč. Lepo je bilo skozi fotografije podoživet celoten dan.
+      Še enkrat bi se ti rada zahvalila da si naju tako na hitro sprejel in predvsem hvala za čudovito izkušnjo na sam dan. Midva sva bila povsem sporoščena, brez skrbi in uživala od prve minute dalje.
+    avtor: Jernej & Nika
+    priloznost: Poroka

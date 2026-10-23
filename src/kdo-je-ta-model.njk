@@ -1,0 +1,87 @@
+---
+layout: base.njk
+permalink: /kdo-je-ta-model/
+title: "Kdo je ta model? | Jan Zorič, poročni fotograf iz Slovenije"
+description: "Zdravo, jaz sem Jan – poročni fotograf iz Rovt. Fotografiram od 2017: poroke, dogodke in vse, kjer se kaj dogaja. Rad imam poroke, na katerih se ljudje zabavajo."
+bodyClass: page-about
+---
+{%- from "macros.njk" import label, tape %}
+
+<header class="about-hello" data-reveal>
+  <h1>
+    <span class="about-hello__small">Zdravo, jaz sem</span>
+    <span class="about-hello__name">Jan<span class="about-hello__dot">.</span></span>
+  </h1>
+  <p class="about-hello__sub">Vajin potencialno najljubši strošek poroke.</p>
+</header>
+
+<section class="about-split">
+  {{ label("01", "Jaz") }}
+  <img class="about-split__img" data-reveal loading="eager" src="/photos/site/jan-s-parom.jpg"
+       alt="Jan Zorič z nasmejanima mladoporočencema na travniku pred gorami"
+       sizes="(min-width: 800px) 46vw, 100vw">
+  <div class="about-split__text" data-reveal>
+    <p>Fotografiram od <em class="futura">2017</em>.<br>
+    Sprva zastonj, potem pa sem ugotovil,<br>
+    da bi bilo mogoče pametno za to tudi kaj zaračunat.</p>
+    <p>Danes sem poročni fotograf, ampak fotografiram najrazličnejše dogodke...<br>
+    ...praktično vse, kjer se kaj dogaja.</p>
+    <p>Rad fotografiram.<br>
+    Rad imam ljudi.<br>
+    In rad imam poroke, na katerih<br>
+    se ljudje dejansko zabavajo.</p>
+  </div>
+</section>
+
+<section class="about-hobby band">
+  {{ label("02", "Po službi") }}
+  <div class="about-hobby__text" data-reveal>
+    <p>Fotografiranje je moja služba.</p>
+    <p>Smučanje, plezanje in kolesarjenje pa razlog,<br>
+    da mi od plače bolj malo ostane.</p>
+  </div>
+  <div class="about-hobby__pile" data-reveal>
+    <figure class="about-hobby__bike">
+      {{ tape("tl") }}
+      <img src="/photos/site/jan-kolo.jpg"
+           alt="Jan z gorskim kolesom v smrekovem gozdu"
+           sizes="(min-width: 800px) 28vw, 70vw">
+    </figure>
+    <figure class="about-hobby__ski">
+      {{ tape("top") }}
+      <img src="/photos/site/jan-turna-smuka.jpg"
+           alt="Jan s smučmi na nahrbtniku stoji v skalnem oknu visoko v gorah"
+           sizes="(min-width: 800px) 22vw, 55vw">
+    </figure>
+  </div>
+</section>
+
+<section class="practice">
+  {{ label("03", "V praksi") }}
+  <h2 class="caps-heading caps-heading--center" data-reveal>KAKO MOJE DELO IZGLEDA V PRAKSI?</h2>
+  <div class="practice__videos">
+    {%- set videos = [
+      { file: "video-hrana", label: "Jan na poroki fotografira mizo s sladicami" },
+      { file: "video-bend", label: "Nevesta s šopkom fotografira z Janovim fotoaparatom – napis: plačan, pa še delat mi ni treba" }
+    ] %}
+    {%- for v in videos %}
+    <figure class="clip" data-reveal>
+      <video class="clip__video" src="/media/{{ v.file }}.mp4" poster="/media/{{ v.file }}-poster.jpg"
+             muted loop playsinline preload="none" width="540" height="960" aria-label="{{ v.label }}"></video>
+      <button class="clip__sound" type="button" aria-pressed="false">[zvok]</button>
+    </figure>
+    {%- endfor %}
+  </div>
+  <div class="practice__text body-copy body-copy--center" data-reveal>
+    <p>Fotografija mi je všeč predvsem zato, ker mi omogoča bit zraven.<br>
+    Spoznat ljudi, videt stvari, ki jih drugače ne bi, in dokumentirat dogodke, ki se ne bodo več ponovili.<br>
+    Na koncertih, porokah, športnih dogodkih ali kjerkoli drugje.</p>
+    <p>Na koncu me vedno najbolj zanimajo ljudje in to, kar se dogaja okoli njih.</p>
+  </div>
+</section>
+
+<section class="outro" data-reveal>
+  <p class="outro__big">DOVOLJ O MENI.</p>
+  <p class="outro__mid">ZDAJ STA NA VRSTI VIDVA.</p>
+  <p><a class="bracket-link" href="/kontakt/">[POVEJTA MI KAJ O SEBI]</a></p>
+</section>

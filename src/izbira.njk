@@ -1,0 +1,91 @@
+---
+layout: base.njk
+permalink: /izbira/
+title: "Cene poročnega fotografiranja – paketi | Jan Zorič, poročni fotograf"
+description: "Koliko stane poročni fotograf? Paketi MINI (500 €), MIDI (750 €) in MAXI (1000 €): ure, število fotografij, galerija in fotografije z dronom."
+bodyClass: page-pricing
+---
+{%- from "macros.njk" import label %}
+{#- Package contents and prices live in src/_data/paketi.yml. -#}
+<h1 class="visually-hidden">Cene in paketi poročnega fotografiranja</h1>
+
+<div class="band">
+<img class="flora flora--fern" src="/flora/fern.svg" alt="" aria-hidden="true" eleventy:ignore>
+<div class="packages" id="paketi">
+  {{ label("01", "Paketi") }}
+  {%- for p in paketi.paketi %}
+  <article class="package" data-reveal aria-labelledby="paket-{{ p.ime | lower }}">
+    <h2 class="package__name" id="paket-{{ p.ime | lower }}"><span class="package__label">opcija</span> {{ p.ime }}</h2>
+    <div class="package__lists">
+      <ul class="package__base">
+        {%- for item in p.osnova %}<li>{{ item }}</li>{% endfor %}
+      </ul>
+      <span class="package__dash" aria-hidden="true">------------</span>
+      <ul class="package__bonus">
+        {%- for item in p.bonus %}<li>{{ item }}</li>{% endfor %}
+      </ul>
+    </div>
+    <div class="package__price">
+      <p class="price">{{ p.cena }}</p>
+      <a class="bracket-link" href="/kontakt/?paket={{ p.ime }}">[TEGA BI IMELA]<span class="visually-hidden"> – paket {{ p.ime }}</span></a>
+    </div>
+  </article>
+  {%- endfor %}
+  <p class="footnote" data-reveal>{{ paketi.opomba }}</p>
+</div>
+</div>
+
+<section class="nothing-fits" data-reveal>
+  {{ label("02", "Po meri") }}
+  <h2 class="display display--center">NIČ OD TEGA VAMA NE USTREZA?</h2>
+  <p class="lead">Se zgodi.<br>Če potrebujeta kaj vmes, več ur ali imata malo drugačne načrte, <a class="underline-link" href="/kontakt/">mi pišita.</a></p>
+</section>
+
+<section class="steps" aria-labelledby="kako-najame">
+  {{ label("03", "Postopek") }}
+  <h2 class="steps__title" id="kako-najame" data-reveal>KAKO SE ME NAJAME?</h2>
+  <ol class="steps__list">
+    <li data-reveal><span class="step-num">01.</span> <strong>IZBERITA.</strong>
+      <p><a class="underline-link" href="#paketi">Poglejta pakete.</a> V vseh dobita istega fotografa.</p></li>
+    <li data-reveal><span class="step-num">02.</span> <strong>PIŠITA.</strong>
+      <p><a class="underline-link" href="/kontakt/">Sporočita</a> mi datum in lokacijo, jaz pa preverim, če sem še prost.</p></li>
+    <li data-reveal><span class="step-num">03.</span> <strong>GREMO NA KAVO.</strong>
+      <p>Ali pivo. Ali Zoom. Se spoznamo in pogovorimo o vajini poroki.</p></li>
+    <li data-reveal><span class="step-num">04.</span> <strong>AKONTACIJA.</strong>
+      <p>Plačata akontacijo in datum je rezerviran.</p></li>
+    <li data-reveal><span class="step-num">05.</span> <strong>POROKA.</strong></li>
+    <li data-reveal><span class="step-num">06.</span> <strong>FOTOGRAFIJE.</strong>
+      <p>Najkasneje v 30 dneh dobita <a class="underline-link" href="/portfolio/">končno galerijo.</a></p></li>
+  </ol>
+</section>
+
+{#- Questions & answers live in src/_data/vprasanja.yml -#}
+<section class="faq" aria-labelledby="faq-naslov">
+  {{ label("04", "Vprašanja") }}
+  <h2 class="steps__title" id="faq-naslov" data-reveal>POGOSTA VPRAŠANJA</h2>
+  <dl class="faq__list">
+    {%- for q in vprasanja.vprasanja %}
+    <div class="faq__item" data-reveal>
+      <dt>{{ q.vprasanje }}</dt>
+      <dd>{{ q.odgovor }}</dd>
+    </div>
+    {%- endfor %}
+  </dl>
+</section>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for q in vprasanja.vprasanja %}
+    { "@type": "Question", "name": {{ q.vprasanje | json | safe }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ q.odgovor | json | safe }} } }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ]
+}
+</script>
+
+<section class="outro" data-reveal>
+  <p class="outro__big">OSTANE SAMO ŠE ENA STVAR.</p>
+  <p><a class="bracket-link bracket-link--big" href="/kontakt/">[GREMO NA KAVO]</a></p>
+</section>
