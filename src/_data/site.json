@@ -5,7 +5,7 @@
   "lang": "sl",
   "locale": "sl_SI",
   "ogImage": "/og-image.jpg",
-  "formEndpoint": "",
+  "formEndpoint": "https://formspree.io/f/mrppgvlj",
   "inspirationCredit": "Dušan Reljin",
   "email": "info@janzoric.com",
   "instagram": "zoric.jpg",
@@ -18,5 +18,5 @@
     "country": "SI",
     "taxId": "43367658"
   },
-  "goatcounter": ""
+  "goatcounter": "janzoric"
 }
